@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+       <script type="text/javascript" src="js/matableVuJs.js"></script>
+       <link rel="stylesheet" href="css/table.css">
+  <meta name="viewport" content="width=device-width">
+  <title>todolist avec vueJS</title>
+</head>
+<body>
+<div id="app">
+
+    <div>
+      
+    
+     <table  >
+         <tr>
+            <th>Nom</th>
+            <th>Cuisine</th> 
+    
+         </tr>
+  <tr v-for="restaurant in restaurants">
+    <td>{{restaurant.name}}</td>
+    <td>{{restaurant.cuisine}}</td> 
+  </tr>
+      
+        
+     </table>
+
+     </div> 
+ 
+         <div>
+               <button id="nextButton" v-on:click="pageadd">Next</button>
+               <button id ="previousButton" v-on:click="pagerem">Preview</button>
+         </div>
+
+         <p>
+          <a href="mytableVs.html">pagination avec vuJS + un composant pour le tri et la recherche!! code integré à partir de la page officielle </a>
+        </p>
+
+  
+</body>
+</html>

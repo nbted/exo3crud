@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+  <script type="text/x-template" id="grid-template">
+  <table>
+    <thead>
+      <tr>
+        <th v-for="key in columns"
+          @click="sortBy(key)"
+          :class="{ active: sortKey == key }">
+          {{ key | capitalize }}
+          <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="entry in filteredData">
+        <td v-for="key in columns">
+          {{entry[key]}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</script>
+<script type="text/javascript" src="js/mytableVs.js"></script>
+<link rel="stylesheet" href="css/table.css">
+<meta name="viewport" content="width=device-width">
+</head>
+<body>
+         <!-- demo root element -->
+<div id="ted">
+  <form id="search">
+    Search <input name="query" v-model="searchQuery">
+  </form>
+  <demo-grid
+    :data="restaurants"
+    :columns="gridColumns"
+    :filter-key="searchQuery">
+  </demo-grid>
+  <button id="nextButton" v-on:click="pageadd" >Next</button>
+  <button id ="previousButton" v-on:click="pagerem" >Preview</button>
+</div>
+</body>
+</html>
+
+
